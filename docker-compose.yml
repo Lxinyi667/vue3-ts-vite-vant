@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  vueapp:
+    build:
+      context: . # 指向 Vue 应⽤的路径
+      dockerfile: Dockerfile # 指向 Dockerfile 的路径
+    ports:
+      - "8083:80"
