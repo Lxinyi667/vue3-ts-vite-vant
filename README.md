@@ -24,6 +24,15 @@ assets
     css                                 // 样式资源
         style.css                       // 公用样式
 
+# 项目公共组件
+components
+    list                                // 列表文件
+        TaskList.vue                    // 任务列表组件
+        ContractList.vue                // 合约列表组件
+        MessageList.vue                 // 消息列表组件
+        TalentList.vue                  // 人才列表组件
+    FooterTabbar.vue                    // 底部导航组件
+
 # api接口
 api
     user.ts                             // 登录模块api
