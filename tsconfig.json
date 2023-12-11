@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-     "baseUrl": "./",  // 这里需要配置
+    "baseUrl": "./",  // 这里需要配置
     "paths": {
       "@/*": ["./src/*"]  // 这里需要配置
     },
@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noImplicitAny": false
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -2,13 +2,11 @@
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
-const gotoPage = (path: any) =>{
+const gotoPage = (path) =>{
     router.push(path)
 }
 </script>
 
-
-</script>
 <template>
   <dl>
     <dt class="icon-task-bar" :class="route.path=='/task'?'active':''" @click="gotoPage('/task')">
