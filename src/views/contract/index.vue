@@ -1,16 +1,15 @@
 <script setup lang="ts">
-    import { reactive } from 'vue';
- 
+    import { reactive } from 'vue'
     import ContractList from '@/components/list/ContractList.vue';
     import FooterTabbar from '@/components/FooterTabbar.vue';
-    const taskList = reactive([
+    const contractList = reactive([
         {id:1},
         {id:2}
     ])
 </script>
 
 <template>
-    <ContractList :contractList="taskList"></ContractList>
+    <ContractList :contractList="contractList"></ContractList>
     <FooterTabbar></FooterTabbar>
 </template>
 <style scoped>
