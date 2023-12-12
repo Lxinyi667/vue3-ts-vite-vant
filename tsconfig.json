@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",  // 这里需要配置
     "paths": {
+      "@": ["./src"],
       "@/*": ["./src/*"]  // 这里需要配置
     },
     "target": "ESNext",
