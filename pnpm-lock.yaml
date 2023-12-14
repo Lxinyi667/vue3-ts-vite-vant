@@ -32,7 +32,7 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^18.19.2
+    specifier: ^18.8.3
     version: registry.npmmirror.com/@types/node@18.19.2
   '@vitejs/plugin-vue':
     specifier: ^3.1.0

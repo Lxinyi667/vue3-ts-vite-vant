@@ -30,9 +30,7 @@ textarea{
   background: linear-gradient(90deg, #FEA829, #FE8F27);
   border-radius: 1.17rem;
   border: none;
-  
   font-size: 0.96rem;
-  height: 2.35rem;
 }
 .van-checkbox__icon{
   height: 0.75rem;

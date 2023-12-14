@@ -1,18 +1,44 @@
-import  request  from "../utils/request";
-// 获取验证码
-export function getCode(data: any) {
+import request from '../utils/request'
+// 合约列表接口
+export function contractList(data: any) {
     return request({
-        url: '/login/code',
-        method: 'post',
-        data
-    })
-}
-
-// 协议文件接口
-export function getPolicy(data: any) {
-    return request({
-        url: 'policy_protocol/list',
+        url: '/task/myContractAllList',
         method: 'get',
         params: data
     })
 }
+// 合约详情接口
+export function contractDetail(data: any) {
+    return request({
+        url: '/task/contractAllList',
+        method: 'get',
+        params: data
+    })
+}
+// 合约签约/拒绝接口
+export function contractOperation(data: any) {
+    return request({
+        url: '/contract/isContract',
+        method: 'put',
+        data
+    })
+}
+// 合约新增接口
+export function contractAdd(data: any) {
+    return request({
+        url: '/task/addcontract',
+        method: 'post',
+        data
+    })
+}
+// 合约进度评估接口
+export function contractGradeEdit(data: any) {
+    return request({
+        url: '/contract/grade/edit',
+        method: 'put',
+        data
+    })
+}
+/*
+    生成合约列表接口方法
+*/

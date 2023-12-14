@@ -16,7 +16,6 @@ const state:any = reactive({
 const onClickLeft = () => history.back()
 const getCodeChange = async () => {
   if(state.interTimeCode) return;
-
   const res:any = await getCode({
     accounts: state.accounts
   })
@@ -73,7 +72,7 @@ const loginSubmit = async () => {
 
 <template>
   <div>
-    <van-icon class="icon-left" name="arrow-left"  @click-left="onClickLeft" />
+    <van-icon class="icon-left" name="arrow-left" @click-left="onClickLeft" />
     <div class="login-form">
       <h3>验证码登录</h3>
       <div class="login-form-item">
@@ -83,7 +82,7 @@ const loginSubmit = async () => {
       <div class="login-form-item">
         <i class="icon-code"></i>
         <input placeholder="请输入验证码" v-model="state.code" type="text" />
-        <span  @click="getCodeChange">{{state.codeText}}</span>
+        <span @click="getCodeChange">{{state.codeText}}</span>
       </div>
       <van-button type="primary" block @click="loginSubmit">登录</van-button>
       <div class="login-form-label">
@@ -120,7 +119,6 @@ const loginSubmit = async () => {
   margin: 0 0.18rem 2rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid #E7E7E7;
-  /* 上下居中 */
   align-items: center;
 }
 .icon-phone{
@@ -157,4 +155,3 @@ const loginSubmit = async () => {
   width: 100%;
 }
 </style>
-

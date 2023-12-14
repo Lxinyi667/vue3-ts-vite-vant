@@ -1,6 +1,5 @@
-import axios from "axios";
-import { Toast } from "vant";
-import { config } from "process";
+import axios from "axios"
+import { Toast } from 'vant'
 let baseURL = "/api"
 const service = axios.create({
     baseURL,
@@ -11,8 +10,10 @@ service.interceptors.request.use(
     config => {
         const token = window.localStorage.getItem('token')
         if(token){
-            config.params = {
-                'token': token
+            config.headers = {
+                'x-access-token': token
+
+                
             }
         }
         return config
@@ -27,7 +28,7 @@ service.interceptors.response.use(
             return Promise.reject(new Error(res.success || 'Error'))
         }else{
             if(res.code == 200){
-                return res.result 
+                return res.result || res.data
             }else{
                 Toast(res.success)
             }   

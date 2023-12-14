@@ -15,6 +15,7 @@ app.use(TabbarItem)
 app.use(Checkbox)
 app.use(Toast)
 app.use(Icon)
+// vant3弹窗组件
 app.use(Popup)
 app.use(Swipe)
 app.use(SwipeItem)

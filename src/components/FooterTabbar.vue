@@ -1,31 +1,32 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
-const route = useRoute()
-const router = useRouter()
-const gotoPage = (path) =>{
-    router.push(path)
-}
+    import { useRoute, useRouter} from 'vue-router'
+    import {userStore} from '@/store/user'
+    const store = userStore()
+    const route = useRoute()
+    const router = useRouter()
+    const gotoPage = (path:any) =>{
+        router.push(path)
+    }
 </script>
-
 <template>
   <dl>
-    <dt class="icon-task-bar" :class="route.path=='/task'?'active':''" @click="gotoPage('/task')">
+    <dt v-if="store.role == '1'" class="icon-task-bar" :class="route.path=='/task'?'active':''" @click="gotoPage('/task')">
         <i></i>
         <p>任务</p>
     </dt>
-    <dt class="icon-task-bar" :class="route.path=='/admin/home'?'active':''" @click="gotoPage('/admin/home')">
+    <dt v-if="store.role == '2'" class="icon-task-bar" :class="route.path=='/admin/home'?'active':''" @click="gotoPage('/admin/home')">
         <i></i>
         <p>首页</p>
     </dt>
-    <dt class="icon-talent-bar" :class="route.path=='/talent'?'active':''" @click="gotoPage('/talent')">
+    <dt  v-if="store.role == '3'" class="icon-talent-bar" :class="route.path=='/talent'?'active':''" @click="gotoPage('/talent')">
         <i></i>
         <p>IT人才</p>
     </dt>
-    <dt class="icon-contract-bar" :class="route.path=='/contract'?'active':''" @click="gotoPage('/contract')">
+    <dt v-if="store.role != '2'" class="icon-contract-bar" :class="route.path=='/contract'?'active':''" @click="gotoPage('/contract')">
         <i></i>
         <p>合约</p>
     </dt>
-    <dt class="icon-message-bar" :class="route.path=='/message'?'active':''" @click="gotoPage('/message')">
+    <dt v-if="store.role != '2'" class="icon-message-bar" :class="route.path=='/message'?'active':''" @click="gotoPage('/message')">
         <i></i>
         <p>消息</p>
     </dt>
