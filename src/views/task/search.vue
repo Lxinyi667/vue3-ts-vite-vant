@@ -17,10 +17,12 @@
         taskList: [],
         pageNum: 1,
         pageSize: 10,
+        // 历史搜索
         searchHistory: his?his.split(','): []
     })
     const leftBack = () => history.back();
     const onSearch = (value:any) => {
+        // 将结果插入到历史记录当中
         if(!value) return
         state.searchFlag = true
         if(!state.searchHistory.includes(value)){
@@ -37,10 +39,12 @@
         state.value = item
         onSearch(item)
     }
+    // 清除历史记录
     const clearHistory = () => {
         state.searchHistory = []
         localStorage.removeItem('searchHistory')
     }
+    // 热门搜索
     const getHotSearch = async () => {
         const res:any = await hotSearch({
             type: 1
@@ -52,6 +56,7 @@
         }
     }
     if(store.hotSearchList.length<=0) getHotSearch()
+    
     const getTaskAllList = async () => {
         state.loading = true
         if(state.pageNum == 1) state.taskList = []
@@ -93,8 +98,10 @@
             @search="onSearch"
             @cancel="onCancel"
         />
+        <!-- 历史搜索 -->
         <div class="search-item" v-if="!state.searchFlag">
             <h3>搜索历史<van-icon name="delete-o" @click="clearHistory" /></h3>
+            <!-- 搜索内容 -->
             <dl>
                 <dt v-for="(item, index) in state.searchHistory" :key="index" @click="gotoSearch(item)">{{item}}</dt>
             </dl>
@@ -103,6 +110,7 @@
                 <dt v-for="(item, index) in store.hotSearchList" :key="index" @click="gotoSearch(item.title)">{{item.title}}</dt>
             </dl>
         </div>
+        <!-- 具体搜索内容 -->
         <div class="search-list" v-show="state.searchFlag">
             <van-pull-refresh v-model="state.loading" @refresh="onRefresh">
             <van-list

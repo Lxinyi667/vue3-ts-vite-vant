@@ -59,6 +59,7 @@
     state.pageNum = state.pageNum + 1
     getTaskAllList()
   }
+  // 下拉刷新
   const onRefresh = () => {
     state.pageNum = 1
     getTaskAllList()
